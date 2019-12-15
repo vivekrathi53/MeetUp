@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ClientFiles/AudioReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ClientFiles/AudioSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/bridj_0_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_1_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/webcam_capture_0_3_12.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetUp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MeetUp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,12 +88,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="98" />
-          <entry key="java" value="2141" />
+          <entry key="java" value="2190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2141" />
+          <entry key="JAVA" value="2190" />
           <entry key="XML" value="98" />
         </counts>
       </usages-collector>
@@ -106,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/ChatWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1774">
-              <caret line="291" column="39" lean-forward="true" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
+              <caret line="291" column="39" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -128,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/FXML_Files/VideoChatWindow.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="35" />
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -137,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="225">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,11 +148,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="120">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +169,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioSender.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -195,7 +200,7 @@
         <entry file="file://$PROJECT_DIR$/src/ServerFiles/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-596">
-              <caret line="103" column="9" lean-forward="true" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+              <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -260,11 +265,11 @@
         <option value="$PROJECT_DIR$/src/ServerFiles/Server.java" />
         <option value="$PROJECT_DIR$/src/ServerFiles/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/FXML_Files/VideoChatWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java" />
-        <option value="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/AudioReceiver.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/AudioSender.java" />
+        <option value="$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java" />
+        <option value="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" />
       </list>
     </option>
   </component>
@@ -326,8 +331,12 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576438968470" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576439282146" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/webcam-capture-0.3.12.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
@@ -499,6 +508,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="698" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23484848" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -736,14 +746,14 @@
     <entry file="file://$PROJECT_DIR$/src/ServerFiles/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-596">
-          <caret line="103" column="9" lean-forward="true" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+          <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/ChatWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1774">
-          <caret line="291" column="39" lean-forward="true" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
+          <caret line="291" column="39" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -758,28 +768,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/FXML_Files/VideoChatWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientFiles/LoginWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,10 +782,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java">
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="45">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -804,12 +796,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioSender.java">
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/FXML_Files/VideoChatWindow.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>JavaFXApp</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>MeetUp</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>webcam-capture-0.3.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
