@@ -1,9 +1,8 @@
 package ClientFiles.Controllers;
 
 import ClientFiles.ClientReceiver;
-import CommonFiles.Message;
-import CommonFiles.Status;
-import CommonFiles.SystemMessage;
+import CommonFiles.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
@@ -42,7 +41,7 @@ public class ChatWindowController
     @FXML
     public VBox AllChats;
     @FXML
-    public Label currentUser;//USER WE ARE COMMMUNICATING
+    public Label currentUser;//USER WE ARE COMMUNICATING
     public Socket socket;
     public ObjectInputStream ois;
     public ObjectOutputStream oos;
@@ -277,4 +276,19 @@ public class ChatWindowController
         alert.show();
     }
 
+    public void CallClicked()
+    {
+        CallRequest cr = new CallRequest(currentUser.getText(),username);
+        try {
+            oos.writeObject(cr);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void StartVideoChat(CallRequest finalObj)
+    {
+        //Thread thread = new Thread();
+    }
 }

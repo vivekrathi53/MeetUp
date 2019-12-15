@@ -1,15 +1,16 @@
 package ClientFiles;
 
 import ClientFiles.Controllers.ChatWindowController;
-import CommonFiles.Errors;
-import CommonFiles.Message;
-import CommonFiles.Status;
-import CommonFiles.SystemMessage;
+import CommonFiles.*;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ public class ClientReceiver implements Runnable
     public ChatWindowController controller;
     Connection connection;
     ObjectInputStream ois;
+    ObjectOutputStream oos;
     String username;
     @Override
     public void run()
@@ -209,6 +211,55 @@ public class ClientReceiver implements Runnable
                 alert.setHeaderText("Error");
                 alert.setContentText(temp.getErrormessage());
                 alert.show();
+            }
+            else if(obj instanceof CallRequest)
+            {
+                CallRequest finalObj = (CallRequest) obj;
+                Platform.runLater(new Runnable()//To perform UI work from different Thread
+                {
+                    @Override
+                    public void run() {
+                        System.out.println("Call Request Received from "+ ((CallRequest) finalObj).getCallerUser());
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Alert Call Request Received From user - "+finalObj.getCallerUser(), ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+                        alert.showAndWait();
+
+                        if (alert.getResult() == ButtonType.YES)
+                        {
+                            InetAddress localhost=null;
+                            try {
+                                localhost = InetAddress.getLocalHost();
+                            } catch (UnknownHostException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                CallRequestRespond crr = new CallRequestRespond(InetAddress.getByName(localhost.getHostAddress()),9890,"Successful",true);
+                                oos.writeObject(crr);
+                                oos.flush();
+                            } catch (UnknownHostException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            controller.StartVideoChat(finalObj);
+                        }
+                        else if(alert.getResult() == ButtonType.NO||alert.getResult() == ButtonType.CANCEL)
+                        {
+                            CallRequestRespond crr = null;
+                            try {
+                                crr = new CallRequestRespond(InetAddress.getLocalHost(),0000,"Call Rejected By User",false);
+                            } catch (UnknownHostException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                oos.writeObject(crr);
+                                oos.flush();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }
+                });
             }
         }
 

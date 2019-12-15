@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Server
 {
 
-    public  ArrayList<Pair<String, Socket>> activelist;
+    public ArrayList<Pair<String, Socket>> activelist;
     public ArrayList<Pair<ObjectInputStream, ObjectOutputStream>> activeUserStreams;
     public MessageManager msh;
     public ArrayList<ClientHandler> handlers;
-
+    public ArrayList<Thread> handlerThreads;
     public static void main(String[] args) throws Exception
     {
         try {
@@ -30,6 +30,7 @@ public class Server
         Connection connection = DriverManager.getConnection(url,"vivek","password");
         Server server=new Server();
         server.handlers=new ArrayList<>();
+        server.handlerThreads=new ArrayList<>();
         server.activelist=new ArrayList<Pair<String, Socket>>();
         server.activeUserStreams=new ArrayList<>();
         server.msh = new MessageManager(server);
@@ -44,10 +45,10 @@ public class Server
                 ObjectInputStream ois = new ObjectInputStream(sc.getInputStream());
                 ClientHandler auth=new ClientHandler(sc,server,server.msh,oos,ois,connection);
                 Thread t=new Thread(auth);
-
                 auth.oos=oos;
                 auth.ois=ois;
                 t.start();
+                server.handlerThreads.add(t);
             }
         }
         catch (IOException e) {
@@ -55,4 +56,27 @@ public class Server
         }
 
     }
+    boolean isOnline(String username)
+    {
+        for(int i=0;i<activelist.size();i++)
+        {
+            if(activelist.get(i).getKey().equals(username))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    Pair getHandler(String username)
+    {
+        for(int i=0;i<activelist.size();i++)
+        {
+            if(activelist.get(i).getKey().equals(username))
+            {
+                return new Pair(handlers.get(i),handlerThreads.get(i));
+            }
+        }
+        return null;
+    }
+
 }

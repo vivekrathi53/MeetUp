@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.sql.*;
 
@@ -79,6 +80,22 @@ public class ClientHandler implements Runnable,Serializable
         }
     }
 
+    public CallRequestRespond callAlert(CallRequest cr)
+    {
+        try {
+            oos.writeObject(cr);
+            oos.flush();
+            CallRequestRespond crr = (CallRequestRespond) ois.readObject();
+            return crr;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     public void run()
     {
         Timestamp time = null;
@@ -131,7 +148,8 @@ public class ClientHandler implements Runnable,Serializable
                             {
                                 msh.insert(receiver, ms);
                             }
-                        } else if (obj instanceof SystemMessage) {
+                        }
+                        else if (obj instanceof SystemMessage) {
                             SystemMessage sm = (SystemMessage) obj;
                             if(sm.getValid()==-1) {// SystemMessage object containing information of logout
                                 time=sm.getTime();
@@ -153,6 +171,22 @@ public class ClientHandler implements Runnable,Serializable
                                 msh.insert(receiver, sm);
                             }
 
+                        }
+                        else if(obj instanceof CallRequest)// Call Request received from user
+                        {
+                            // generate Alert Request to user if he is online
+                            Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequest) obj).getTargetUser());
+                            if(cht.getKey()==null)
+                            {
+                                oos.writeObject(new CallRequestRespond(InetAddress.getLocalHost(),0000,"User Not Online",false));
+                                oos.flush();
+                            }
+                            else {
+                                cht.getValue().suspend();
+                                oos.writeObject(cht.getKey().callAlert((CallRequest) obj));
+                                oos.flush();
+                                cht.getValue().notify();
+                            }
                         }
                         }
                     }

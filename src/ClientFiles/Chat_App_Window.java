@@ -60,6 +60,7 @@ public class Chat_App_Window extends Application {
         }
         setReciever(new ClientReceiver());
         getReciever().ois= getOis();//inputstream of client
+        getReciever().oos=getOos();
         getReciever().controller= getController();
         getReciever().connection= getConnection();
         getReciever().username= getUsername();
