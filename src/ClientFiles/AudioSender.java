@@ -1,6 +1,5 @@
 package ClientFiles;
 
-public class VideoSender
+public class AudioSender
 {
-
 }

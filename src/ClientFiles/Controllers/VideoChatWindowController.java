@@ -3,18 +3,17 @@ package ClientFiles.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import javax.swing.text.html.ImageView;
+import javafx.scene.image.ImageView;
 
 
 public class VideoChatWindowController
 {
     @FXML
-    Button StopCall;
+    public Button StopCall;
     @FXML
-    ImageView MyVideoView;
+    public ImageView MyVideoView;
     @FXML
-    ImageView CallerVideoView;
+    public ImageView CallerVideoView;
     public void StopCallClicked()
     {
 
