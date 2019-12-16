@@ -2,12 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/bridj_0_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_1_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/webcam_capture_0_3_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommonFiles/FramePacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MeetUp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MeetUp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/Chat_App_Window.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/ClientReceiver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/Controllers/ChatWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/Controllers/LoginWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/Controllers/MessageDisplayController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/Controllers/Signupcontroller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/LoginWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ClientFiles/Signup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/Authentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/CallRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/CallRequestRespond.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/Errors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/Signupclass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/SystemMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/CommonFiles/user.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ServerFiles/ClientHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ServerFiles/MessageManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MeetUp/ServerFiles/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientFiles/AudioSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFiles/AudioSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,37 +89,42 @@
     <session id="1278591824">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="fxml" value="3" />
-          <entry key="java" value="41" />
-          <entry key="md" value="1" />
+          <entry key="java" value="43" />
+          <entry key="md" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="41" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="JAVA" value="43" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="98" />
-          <entry key="java" value="2190" />
+          <entry key="java" value="2350" />
+          <entry key="md" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2190" />
+          <entry key="JAVA" value="2350" />
+          <entry key="Markdown" value="82" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="98" />
         </counts>
       </usages-collector>
@@ -105,23 +136,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/ChatWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1774">
-              <caret line="291" column="39" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/ClientReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
+            <state relative-caret-position="3390">
               <caret line="242" column="64" selection-start-line="242" selection-start-column="64" selection-end-line="242" selection-end-column="64" />
-              <folding>
-                <element signature="e#6745#6746#0" expanded="true" />
-                <element signature="e#6855#6856#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -139,7 +157,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="180">
               <caret line="15" column="37" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -148,11 +166,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            <state relative-caret-position="330">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,11 +187,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            <state relative-caret-position="90">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -181,8 +199,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="183">
+              <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CommonFiles/FramePacket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,15 +225,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
               <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ServerFiles/ClientHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-596">
-              <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -265,11 +289,14 @@
         <option value="$PROJECT_DIR$/src/ServerFiles/Server.java" />
         <option value="$PROJECT_DIR$/src/ServerFiles/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/FXML_Files/VideoChatWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/AudioReceiver.java" />
-        <option value="$PROJECT_DIR$/src/ClientFiles/AudioSender.java" />
         <option value="$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java" />
+        <option value="$PROJECT_DIR$/src/CommonFiles/FramePacket.java" />
+        <option value="$PROJECT_DIR$/src/ClientFiles/SendSynchronizer.java" />
+        <option value="$PROJECT_DIR$/src/ClientFiles/VideoSender.java" />
+        <option value="$PROJECT_DIR$/src/ClientFiles/AudioSender.java" />
       </list>
     </option>
   </component>
@@ -290,6 +317,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,14 +341,18 @@
               <item name="MeetUp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MeetUp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="CommonFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetUp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ServerFiles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,7 +364,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576439282146" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576491613372" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/webcam-capture-0.3.12.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -344,6 +377,10 @@
       <recent name="CommonFiles" />
       <recent name="" />
       <recent name="ServerFiles" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ClientFiles" />
+      <recent name="$PROJECT_DIR$/src/CommonFiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/ClientFiles/FXML_Files" />
@@ -510,7 +547,7 @@
     <frame x="0" y="25" width="1366" height="698" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23484848" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.24242425" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -518,7 +555,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32922536" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3274648" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -532,6 +569,9 @@
       <window_info anchor="bottom" id="Event Log" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32922536" />
       <window_info anchor="bottom" id="Terminal" order="14" />
+      <window_info anchor="bottom" id="Log Viewer" order="15" />
+      <window_info anchor="bottom" id="Anonymous Apex" order="16" />
+      <window_info anchor="bottom" id="SOQL Query" order="17" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -565,16 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="20" selection-start-line="5" selection-start-column="12" selection-end-line="6" selection-end-column="28" />
-          <folding>
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#437#438#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -603,16 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="12" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -655,9 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,16 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-          <folding>
-            <element signature="e#146#147#0" expanded="true" />
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,30 +725,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerFiles/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -752,47 +737,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/ChatWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1774">
+        <state relative-caret-position="4140">
           <caret line="291" column="39" selection-start-line="291" selection-start-column="39" selection-end-line="291" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientFiles/ClientReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
+        <state relative-caret-position="3390">
           <caret line="242" column="64" selection-start-line="242" selection-start-column="64" selection-end-line="242" selection-end-column="64" />
-          <folding>
-            <element signature="e#6745#6746#0" expanded="true" />
-            <element signature="e#6855#6856#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/LoginWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -806,7 +759,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientFiles/Controllers/VideoChatWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="180">
           <caret line="15" column="37" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -814,13 +767,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/LoginWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state>
+          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="8" selection-start-column="8" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/SendSynchronizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#166#167#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CommonFiles/FramePacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/VideoSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientFiles/AudioSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
