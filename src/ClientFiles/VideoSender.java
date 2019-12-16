@@ -2,8 +2,12 @@ package ClientFiles;
 
 import CommonFiles.FramePacket;
 import com.github.sarxos.webcam.Webcam;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import javax.imageio.ImageIO;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -21,20 +25,20 @@ public class VideoSender implements Runnable
 {
     Webcam webcam;
 
-    public VideoSender(InetAddress targetAddress, int port) {
+    public VideoSender(InetAddress targetAddress, int port, ImageView myVideoView) {
         this.webcam = Webcam.getDefault();
         this.targetAddress = targetAddress;
         Port = port;
     }
-
+    ImageView MyVideoView;
     InetAddress targetAddress;
     int Port;
     @Override
     public void run(){
         while(true)
         {
-            //   Image image = SwingFXUtils.toFXImage(webcam.getImage(), null);
-            //  imageView.setImage(image);
+            Image image = SwingFXUtils.toFXImage(webcam.getImage(), null);
+            MyVideoView.setImage(image);
             DatagramSocket datagramSocket = null;
             try {
                 datagramSocket =new DatagramSocket();

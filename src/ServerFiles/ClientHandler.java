@@ -21,7 +21,7 @@ public class ClientHandler implements Runnable,Serializable
     MessageManager msh;
     String username, password;
     Connection connection;
-
+    int flag=0;
 
     public ClientHandler(Socket so, Server ss, MessageManager ms, ObjectOutputStream oos, ObjectInputStream ois, Connection connection)
     {
@@ -80,19 +80,16 @@ public class ClientHandler implements Runnable,Serializable
         }
     }
 
-    public CallRequestRespond callAlert(CallRequest cr)
+    public void callAlert(CallRequest cr)
     {
         try {
             oos.writeObject(cr);
             oos.flush();
-            CallRequestRespond crr = (CallRequestRespond) ois.readObject();
-            return crr;
+            flag=1;
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
-        return null;
+        return;
     }
 
 
@@ -172,22 +169,25 @@ public class ClientHandler implements Runnable,Serializable
                             }
 
                         }
+                        else if((obj instanceof CallRequestRespond))
+                        {
+                            Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequestRespond) obj).getCallerUser());
+                            cht.getKey().callRespond((CallRequestRespond)obj);
+                        }
                         else if(obj instanceof CallRequest)// Call Request received from user
                         {
                             // generate Alert Request to user if he is online
                             Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequest) obj).getTargetUser());
                             if(cht.getKey()==null)
                             {
-                                oos.writeObject(new CallRequestRespond(InetAddress.getLocalHost(),0000,"User Not Online",false));
+                                oos.writeObject(new CallRequestRespond(InetAddress.getLocalHost(),0000,"User Not Online",false,((CallRequest) obj).getCallerUser(),((CallRequest) obj).getTargetUser()));
                                 oos.flush();
                             }
                             else {
-                                cht.getValue().suspend();
-                                oos.writeObject(cht.getKey().callAlert((CallRequest) obj));
-                                oos.flush();
-                                cht.getValue().notify();
+                                cht.getKey().callAlert((CallRequest) obj);
                             }
                         }
+
                         }
                     }
                 System.out.println("Logging Out");
@@ -213,6 +213,15 @@ public class ClientHandler implements Runnable,Serializable
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void callRespond(CallRequestRespond obj) {
+        try {
+            oos.writeObject(obj);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

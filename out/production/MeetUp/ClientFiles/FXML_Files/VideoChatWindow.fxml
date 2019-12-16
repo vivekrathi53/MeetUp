@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFiles.Controllers.VideoChatWindowController">
+   <children>
+      <ImageView fx:id="CallerVideoView" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="MyVideoView" fitHeight="86.0" fitWidth="124.0" layoutX="476.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="StopCall" layoutX="196.0" layoutY="357.0" mnemonicParsing="false" onAction="#StopCallClicked" text="Stop Call" />
+   </children>
+</AnchorPane>

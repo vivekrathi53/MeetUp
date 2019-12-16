@@ -12,6 +12,13 @@ import java.util.Date;
 
 public class AudioSender implements Runnable
 {
+    public AudioSender(InetAddress targetAddress, int port) {
+        this.targetAddress = targetAddress;
+        Port = port;
+    }
+
+    private InetAddress targetAddress;
+    private int Port;
     @Override
     public void run() {
         AudioFormat format = new AudioFormat(8000.0f, 16, 1, true, true);
@@ -48,7 +55,7 @@ public class AudioSender implements Runnable
                 oos.writeObject(ap);
                 byte[] data2 = baos.toByteArray();
                 DatagramSocket ds = new DatagramSocket();
-                DatagramPacket dp = new DatagramPacket(data2,data2.length, InetAddress.getLocalHost(),8189);
+                DatagramPacket dp = new DatagramPacket(data2,data2.length, getTargetAddress(), getPort());
                 ///System.out.println(data2.length);
                 ds.send(dp);
                 ds.close();
@@ -62,12 +69,22 @@ public class AudioSender implements Runnable
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+    }
+
+    public InetAddress getTargetAddress() {
+        return targetAddress;
+    }
+
+    public void setTargetAddress(InetAddress targetAddress) {
+        this.targetAddress = targetAddress;
+    }
+
+    public int getPort() {
+        return Port;
+    }
+
+    public void setPort(int port) {
+        Port = port;
     }
 }

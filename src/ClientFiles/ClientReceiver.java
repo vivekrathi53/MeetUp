@@ -232,7 +232,7 @@ public class ClientReceiver implements Runnable
                                 e.printStackTrace();
                             }
                             try {
-                                CallRequestRespond crr = new CallRequestRespond(InetAddress.getByName(localhost.getHostAddress()),9890,"Successful",true);
+                                CallRequestRespond crr = new CallRequestRespond(InetAddress.getByName(localhost.getHostAddress()),9890,"Successful",true,finalObj.getCallerUser(),finalObj.getTargetUser());
                                 oos.writeObject(crr);
                                 oos.flush();
                             } catch (UnknownHostException e) {
@@ -246,7 +246,7 @@ public class ClientReceiver implements Runnable
                         {
                             CallRequestRespond crr = null;
                             try {
-                                crr = new CallRequestRespond(InetAddress.getLocalHost(),0000,"Call Rejected By User",false);
+                                crr = new CallRequestRespond(InetAddress.getLocalHost(),0000,"Call Rejected By User",false,finalObj.getCallerUser(),finalObj.getTargetUser());
                             } catch (UnknownHostException e) {
                                 e.printStackTrace();
                             }
@@ -260,6 +260,34 @@ public class ClientReceiver implements Runnable
                         }
                     }
                 });
+            }
+            else if(obj instanceof CallRequestRespond)
+            {
+                CallRequestRespond crr = (CallRequestRespond) obj;
+                if(!crr.isAccepted())
+                {
+                    Platform.runLater(new Runnable()//To perform UI work from different Thread
+                    {
+                        @Override
+                        public void run() {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Call Disconnected");
+                            alert.setHeaderText(crr.getError());
+                            alert.setContentText("You Can Retry Connecting Call");
+                            alert.show();
+                        }
+                    });
+                }
+                else
+                {
+                    Platform.runLater(new Runnable()//To perform UI work from different Thread
+                    {
+                        @Override
+                        public void run() {
+                            controller.StartVideoChat(new CallRequest(controller.currentUser.getText(),controller.username,crr.getInetAddress(),crr.getPort()));
+                        }
+                    });
+                }
             }
         }
 

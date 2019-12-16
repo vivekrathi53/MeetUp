@@ -1,19 +1,26 @@
 package ClientFiles.Controllers;
 
 import ClientFiles.ClientReceiver;
+import ClientFiles.VideoReceiver;
+import ClientFiles.VideoSender;
 import CommonFiles.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.sql.*;
 import java.util.*;
 
@@ -276,9 +283,8 @@ public class ChatWindowController
         alert.show();
     }
 
-    public void CallClicked()
-    {
-        CallRequest cr = new CallRequest(currentUser.getText(),username);
+    public void CallClicked() throws UnknownHostException {
+        CallRequest cr = new CallRequest(currentUser.getText(),username,InetAddress.getByName(InetAddress.getLocalHost().getHostAddress()),9890);
         try {
             oos.writeObject(cr);
             oos.flush();
@@ -289,6 +295,30 @@ public class ChatWindowController
 
     public void StartVideoChat(CallRequest finalObj)
     {
-        //Thread thread = new Thread();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../FXML_Files/VideoChatWindow.fxml"));
+        AnchorPane anchorPane = null;
+        try
+        {
+            anchorPane = (AnchorPane) fxmlLoader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        VideoChatWindowController controller = fxmlLoader.getController();
+        controller.setTargetInetAddress(finalObj.getInetAddress());
+        controller.setTargetPort(finalObj.getPort());
+        controller.StartVideoCall();
+        controller.setCurrentStage(currentStage);
+        currentStage.setTitle("Video Chat Window!");
+        currentStage.setScene(new Scene(anchorPane));
+        // set size of current window to maximum
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        currentStage.setWidth((primScreenBounds.getWidth()));
+        currentStage.setHeight((primScreenBounds.getHeight()));
+        anchorPane.setPrefWidth((primScreenBounds.getWidth()));
+        anchorPane.setPrefHeight((primScreenBounds.getHeight()));
+        // display window now
+        currentStage.show();
     }
 }
