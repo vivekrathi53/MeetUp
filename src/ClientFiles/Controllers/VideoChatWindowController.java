@@ -1,21 +1,18 @@
 package ClientFiles.Controllers;
 
 import ClientFiles.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 
 public class VideoChatWindowController
 {
     @FXML
-    public Button StopCall;
+    public Button StopCall;// to stop or end call
     @FXML
     public ImageView MyVideoView;
     @FXML
