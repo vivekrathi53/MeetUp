@@ -9,7 +9,7 @@ import java.net.DatagramSocket;
 public class VideoReceiver implements Runnable
 {
     public VideoReceiver(ImageView callerVideoView, BufferedPlayer bp) {
-        CallerVideoView = callerVideoView;
+        this.CallerVideoView = callerVideoView;
         this.bp = bp;
     }
 
@@ -17,7 +17,7 @@ public class VideoReceiver implements Runnable
     private BufferedPlayer bp;
     int stopper;
     @Override
-    public void run()
+    public void run() throws NullPointerException
     {
         int flag=0;
         try
@@ -45,6 +45,7 @@ public class VideoReceiver implements Runnable
         }
         catch(Exception e)
         {
+            System.out.println("Video Receiver Error");
             e.printStackTrace();
         }
     }

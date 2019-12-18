@@ -26,6 +26,7 @@ public class BufferedPlayer implements Runnable
     private SourceDataLine speakers;
     public BufferedPlayer(ImageView imageView, Label loadingLabel,long delta) {
         this.setFrameQueue(new LinkedList<>());
+        this.setAudioQueue(new LinkedList<>());
         this.setImageView(imageView);
         this.setLoadingLabel(loadingLabel);
         this.setDelta(delta);
@@ -49,7 +50,7 @@ public class BufferedPlayer implements Runnable
     }
 
     @Override
-    public void run()
+    public void run() throws NullPointerException
     {
         try {
             sleep(60);
@@ -61,6 +62,8 @@ public class BufferedPlayer implements Runnable
 
             try
             {
+                System.out.println(getFrameQueue().size()+" "+getAudioQueue().size());
+                while(getAudioQueue().size()==0||getFrameQueue().size()==0)sleep(2);// do nothing
                 if(getDifference(getFrameQueue().peek(), getAudioQueue().peek())< getDelta())
                 {
                     ByteArrayInputStream bais = new ByteArrayInputStream(getFrameQueue().peek().getFrameData());
@@ -81,6 +84,7 @@ public class BufferedPlayer implements Runnable
             }
             catch(Exception e)
             {
+                System.out.println("Buffered Player Error");
                 e.printStackTrace();
             }
         }

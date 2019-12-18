@@ -17,7 +17,7 @@ public class AudioReceiver implements Runnable
     private BufferedPlayer bp;
     int stopper;
     @Override
-    public void run() {
+    public void run() throws NullPointerException{
         AudioFormat format = new AudioFormat(8000.0f, 16, 1, true, true);
         SourceDataLine speakers;
         try {

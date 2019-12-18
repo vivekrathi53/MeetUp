@@ -46,11 +46,13 @@ public class VideoChatWindowController
         AudioReceiver ar = null;
         AudioSender as = null;
         try {
+            System.out.println("Initilizing Handling Objects ...");
             bp = new BufferedPlayer(CallerVideoView,loadingLabel,1000);
             vs = new VideoSender(TargetInetAddress,TargetPort,MyVideoView);
             vr = new VideoReceiver(CallerVideoView,bp);
             ar = new AudioReceiver(bp);
             as = new AudioSender(TargetInetAddress,TargetPort);
+            System.out.println("All Objects Initialized .");
         } catch (Exception e) {
             e.printStackTrace();
         }

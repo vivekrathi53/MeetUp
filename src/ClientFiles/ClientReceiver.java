@@ -212,6 +212,34 @@ public class ClientReceiver implements Runnable
                 alert.setContentText(temp.getErrormessage());
                 alert.show();
             }
+            else if(obj instanceof CallRequestRespond)
+            {
+                CallRequestRespond crr = (CallRequestRespond) obj;
+                if(!crr.isAccepted())
+                {
+                    Platform.runLater(new Runnable()//To perform UI work from different Thread
+                    {
+                        @Override
+                        public void run() {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Call Disconnected");
+                            alert.setHeaderText(crr.getError());
+                            alert.setContentText("You Can Retry Connecting Call");
+                            alert.show();
+                        }
+                    });
+                }
+                else
+                {
+                    Platform.runLater(new Runnable()//To perform UI work from different Thread
+                    {
+                        @Override
+                        public void run() {
+                            controller.StartVideoChat(new CallRequest(controller.currentUser.getText(),controller.username,crr.getInetAddress(),crr.getPort()));
+                        }
+                    });
+                }
+            }
             else if(obj instanceof CallRequest)
             {
                 CallRequest finalObj = (CallRequest) obj;
@@ -261,34 +289,7 @@ public class ClientReceiver implements Runnable
                     }
                 });
             }
-            else if(obj instanceof CallRequestRespond)
-            {
-                CallRequestRespond crr = (CallRequestRespond) obj;
-                if(!crr.isAccepted())
-                {
-                    Platform.runLater(new Runnable()//To perform UI work from different Thread
-                    {
-                        @Override
-                        public void run() {
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Call Disconnected");
-                            alert.setHeaderText(crr.getError());
-                            alert.setContentText("You Can Retry Connecting Call");
-                            alert.show();
-                        }
-                    });
-                }
-                else
-                {
-                    Platform.runLater(new Runnable()//To perform UI work from different Thread
-                    {
-                        @Override
-                        public void run() {
-                            controller.StartVideoChat(new CallRequest(controller.currentUser.getText(),controller.username,crr.getInetAddress(),crr.getPort()));
-                        }
-                    });
-                }
-            }
+
         }
 
     }

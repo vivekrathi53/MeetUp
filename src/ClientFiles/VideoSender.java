@@ -2,12 +2,15 @@ package ClientFiles;
 
 import CommonFiles.FramePacket;
 import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamEvent;
+import com.github.sarxos.webcam.WebcamListener;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javax.imageio.ImageIO;
 
+import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -24,17 +27,12 @@ import static java.lang.Thread.sleep;
 public class VideoSender implements Runnable
 {
     Webcam webcam;
-
-    public VideoSender(InetAddress targetAddress, int port, ImageView myVideoView) {
-        this.webcam = Webcam.getDefault();
-        this.targetAddress = targetAddress;
-        Port = port;
-    }
     ImageView MyVideoView;
     InetAddress targetAddress;
     int Port;
     @Override
-    public void run(){
+    public void run() throws NullPointerException
+    {
         while(true)
         {
             Image image = SwingFXUtils.toFXImage(webcam.getImage(), null);
@@ -73,5 +71,15 @@ public class VideoSender implements Runnable
                 e.printStackTrace();
             }
         }
+    }
+    public VideoSender(InetAddress targetAddress, int port, ImageView myVideoView) {
+        this.webcam = Webcam.getDefault();
+        webcam=Webcam.getDefault();
+        webcam.setViewSize(new Dimension(320,240));
+        //      webcam.setViewSize(WebcamResolution.VGA.getSize());// better way to do above task
+        webcam.open();
+        this.targetAddress = targetAddress;
+        Port = port;
+        this.MyVideoView=myVideoView;
     }
 }

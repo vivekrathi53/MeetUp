@@ -20,7 +20,7 @@ public class AudioSender implements Runnable
     private InetAddress targetAddress;
     private int Port;
     @Override
-    public void run() {
+    public void run() throws NullPointerException {
         AudioFormat format = new AudioFormat(8000.0f, 16, 1, true, true);
         TargetDataLine microphone;
         SourceDataLine speakers;
@@ -55,7 +55,7 @@ public class AudioSender implements Runnable
                 oos.writeObject(ap);
                 byte[] data2 = baos.toByteArray();
                 DatagramSocket ds = new DatagramSocket();
-                DatagramPacket dp = new DatagramPacket(data2,data2.length, getTargetAddress(), getPort());
+                DatagramPacket dp = new DatagramPacket(data2,data2.length, getTargetAddress(), 8189);
                 ///System.out.println(data2.length);
                 ds.send(dp);
                 ds.close();

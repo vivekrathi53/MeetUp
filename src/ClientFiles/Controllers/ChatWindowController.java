@@ -308,7 +308,6 @@ public class ChatWindowController
         VideoChatWindowController controller = fxmlLoader.getController();
         controller.setTargetInetAddress(finalObj.getInetAddress());
         controller.setTargetPort(finalObj.getPort());
-        controller.StartVideoCall();
         controller.setCurrentStage(currentStage);
         currentStage.setTitle("Video Chat Window!");
         currentStage.setScene(new Scene(anchorPane));
@@ -320,5 +319,6 @@ public class ChatWindowController
         anchorPane.setPrefHeight((primScreenBounds.getHeight()));
         // display window now
         currentStage.show();
+        controller.StartVideoCall();
     }
 }

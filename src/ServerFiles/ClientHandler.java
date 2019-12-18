@@ -80,7 +80,7 @@ public class ClientHandler implements Runnable,Serializable
         }
     }
 
-    public void callAlert(CallRequest cr)
+    private void callAlert(CallRequest cr)
     {
         try {
             oos.writeObject(cr);
@@ -92,6 +92,14 @@ public class ClientHandler implements Runnable,Serializable
         return;
     }
 
+    private void callRespond(CallRequestRespond obj) {
+        try {
+            oos.writeObject(obj);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void run()
     {
@@ -171,14 +179,16 @@ public class ClientHandler implements Runnable,Serializable
                         }
                         else if((obj instanceof CallRequestRespond))
                         {
+                            System.out.println("Call Respond from "+((CallRequestRespond) obj).getTargetUser()+" to "+((CallRequestRespond) obj).getCallerUser());
                             Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequestRespond) obj).getCallerUser());
                             cht.getKey().callRespond((CallRequestRespond)obj);
                         }
                         else if(obj instanceof CallRequest)// Call Request received from user
                         {
                             // generate Alert Request to user if he is online
+                            System.out.println("Call Request from "+((CallRequest) obj).getCallerUser()+" to "+((CallRequest) obj).getTargetUser());
                             Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequest) obj).getTargetUser());
-                            if(cht.getKey()==null)
+                            if(cht.getKey()==null)// Target user is not online
                             {
                                 oos.writeObject(new CallRequestRespond(InetAddress.getLocalHost(),0000,"User Not Online",false,((CallRequest) obj).getCallerUser(),((CallRequest) obj).getTargetUser()));
                                 oos.flush();
@@ -216,14 +226,7 @@ public class ClientHandler implements Runnable,Serializable
         }
     }
 
-    private void callRespond(CallRequestRespond obj) {
-        try {
-            oos.writeObject(obj);
-            oos.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     public boolean authenticate() throws ClassNotFoundException, SQLException //To authentication
     {
