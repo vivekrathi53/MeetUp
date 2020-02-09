@@ -18,6 +18,16 @@ public class AudioSender implements Runnable
     }
 
     private InetAddress targetAddress;
+
+    public String getTargetUser() {
+        return targetUser;
+    }
+
+    public void setTargetUser(String targetUser) {
+        this.targetUser = targetUser;
+    }
+
+    private String targetUser;
     private int Port;
     @Override
     public void run() throws NullPointerException {
@@ -49,13 +59,13 @@ public class AudioSender implements Runnable
                 // write the mic data to a stream for use later
                 //out.write(data, 0, numBytesRead);
 
-                AudioPacket ap = new AudioPacket(data,new Timestamp(new Date().getTime()));
+                AudioPacket ap = new AudioPacket(data,new Timestamp(new Date().getTime()),targetUser);
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 ObjectOutputStream oos = new ObjectOutputStream(baos);
                 oos.writeObject(ap);
                 byte[] data2 = baos.toByteArray();
                 DatagramSocket ds = new DatagramSocket();
-                DatagramPacket dp = new DatagramPacket(data2,data2.length, getTargetAddress(), 8189);
+                DatagramPacket dp = new DatagramPacket(data2,data2.length, getTargetAddress(), Port);
                 ///System.out.println(data2.length);
                 ds.send(dp);
                 ds.close();

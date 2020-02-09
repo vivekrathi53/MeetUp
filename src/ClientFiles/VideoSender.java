@@ -29,6 +29,7 @@ public class VideoSender implements Runnable
     Webcam webcam;
     ImageView MyVideoView;
     InetAddress targetAddress;
+    String targetUser;
     int Port;
     @Override
     public void run() throws NullPointerException
@@ -54,7 +55,7 @@ public class VideoSender implements Runnable
             try {
 
                 byte[] data = baos.toByteArray();
-                FramePacket fp = new FramePacket(data,new Timestamp(new Date().getTime()));
+                FramePacket fp = new FramePacket(data,new Timestamp(new Date().getTime()),targetUser);
                 ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
                 ObjectOutputStream oos = new ObjectOutputStream(baos2);
                 oos.writeObject(fp);

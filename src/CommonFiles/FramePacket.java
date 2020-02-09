@@ -8,10 +8,21 @@ public class FramePacket implements Serializable
     private byte[] frameData;
     private Timestamp timestamp;
 
-    public FramePacket(byte[] frameData, Timestamp timestamp) {
-        this.setFrameData(frameData);
-        this.setTimestamp(timestamp);
+    public String getDestinationUsername() {
+        return destinationUsername;
     }
+
+    public void setDestinationUsername(String destinationUsername) {
+        this.destinationUsername = destinationUsername;
+    }
+
+    public FramePacket(byte[] frameData, Timestamp timestamp, String destinationUsername) {
+        this.frameData = frameData;
+        this.timestamp = timestamp;
+        this.destinationUsername = destinationUsername;
+    }
+
+    private String destinationUsername;
 
     public byte[] getFrameData() {
         return frameData;

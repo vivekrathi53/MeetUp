@@ -19,6 +19,7 @@ public class Server
     public MessageManager msh;
     public ArrayList<ClientHandler> handlers;
     public ArrayList<Thread> handlerThreads;
+    public ArrayList<Pair<String,String> > currentCalls;
     public static void main(String[] args) throws Exception
     {
         try {
@@ -32,9 +33,18 @@ public class Server
         server.handlers=new ArrayList<>();
         server.handlerThreads=new ArrayList<>();
         server.activelist=new ArrayList<Pair<String, Socket>>();
+        server.currentCalls=new ArrayList<Pair<String, String>>();
         server.activeUserStreams=new ArrayList<>();
         server.msh = new MessageManager(server);
         server.msh.connection=connection;
+        CallFramesHandler ch = new CallFramesHandler();
+        ch.server=server;
+        Thread callFramesHandlerThread = new Thread(ch);
+        callFramesHandlerThread.start();
+        CallAudioHandler ca = new CallAudioHandler();
+        ca.server=server;
+        Thread callAudioHandlerThread = new Thread(ca);
+        callAudioHandlerThread.start();
         try
         {
             ServerSocket ss=new ServerSocket(8188);
@@ -67,7 +77,7 @@ public class Server
         }
         return false;
     }
-    Pair getHandler(String username)
+    Pair<ClientHandler,Thread> getHandler(String username)
     {
         for(int i=0;i<activelist.size();i++)
         {
@@ -77,6 +87,19 @@ public class Server
             }
         }
         return null;
+    }
+    public void addCall(String user1,String user2)
+    {
+        currentCalls.add(new Pair<>(user1,user2));
+    }
+    public boolean isInCall(String user1)
+    {
+        for(int i=0;i<currentCalls.size();i++)
+        {
+            if(currentCalls.get(i).getKey().equals(user1)||currentCalls.get(i).getValue().equals(user1))
+                return true;
+        }
+        return false;
     }
 
 }

@@ -8,10 +8,21 @@ public class AudioPacket implements Serializable
     private byte[] audioData;
     private Timestamp timestamp;
 
-    public AudioPacket(byte[] audioData, Timestamp timestamp) {
-        this.setAudioData(audioData);
-        this.setTimestamp(timestamp);
+    public String getDestination_user() {
+        return destination_user;
     }
+
+    public void setDestination_user(String destination_user) {
+        this.destination_user = destination_user;
+    }
+
+    public AudioPacket(byte[] audioData, Timestamp timestamp, String destination_user) {
+        this.audioData = audioData;
+        this.timestamp = timestamp;
+        this.destination_user = destination_user;
+    }
+
+    private String destination_user;
 
     public byte[] getAudioData() {
         return audioData;

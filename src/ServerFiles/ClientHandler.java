@@ -182,13 +182,15 @@ public class ClientHandler implements Runnable,Serializable
                             System.out.println("Call Respond from "+((CallRequestRespond) obj).getTargetUser()+" to "+((CallRequestRespond) obj).getCallerUser());
                             Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequestRespond) obj).getCallerUser());
                             cht.getKey().callRespond((CallRequestRespond)obj);
+                            if(((CallRequestRespond) obj).isAccepted())
+                                server.addCall(((CallRequestRespond) obj).getCallerUser(),((CallRequestRespond) obj).getTargetUser());
                         }
                         else if(obj instanceof CallRequest)// Call Request received from user
                         {
                             // generate Alert Request to user if he is online
                             System.out.println("Call Request from "+((CallRequest) obj).getCallerUser()+" to "+((CallRequest) obj).getTargetUser());
                             Pair<ClientHandler,Thread> cht = server.getHandler(((CallRequest) obj).getTargetUser());
-                            if(cht.getKey()==null)// Target user is not online
+                            if(cht.getKey()==null||server.isInCall(((CallRequest) obj).getTargetUser()))// Target user is not online
                             {
                                 oos.writeObject(new CallRequestRespond(InetAddress.getLocalHost(),0000,"User Not Online",false,((CallRequest) obj).getCallerUser(),((CallRequest) obj).getTargetUser()));
                                 oos.flush();
