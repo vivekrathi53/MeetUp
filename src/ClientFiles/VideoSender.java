@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -36,7 +37,8 @@ public class VideoSender implements Runnable
     {
         while(true)
         {
-            Image image = SwingFXUtils.toFXImage(webcam.getImage(), null);
+            BufferedImage swing_Image=webcam.getImage();
+            Image image = SwingFXUtils.toFXImage( swing_Image, null);
             MyVideoView.setImage(image);
             DatagramSocket datagramSocket = null;
             try {
@@ -47,7 +49,7 @@ public class VideoSender implements Runnable
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream(200000);
             try {
-                ImageIO.write(webcam.getImage(),"jpg",baos);
+                ImageIO.write(swing_Image,"jpg",baos);
             } catch (IOException e) {
                 e.printStackTrace();
             }
