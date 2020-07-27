@@ -1,8 +1,9 @@
-package ServerFiles;
+package ServerFiles.DatabaseManager;
 
 import CommonFiles.Message;
 import CommonFiles.Signupclass;
 import CommonFiles.SystemMessage;
+import ServerFiles.Server;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -11,9 +12,9 @@ import java.time.LocalDateTime;
 
 public class MessageManager
 {
-    Server server;
-    ObjectOutputStream oos;
-    Connection connection;
+    public Server server;
+    public ObjectOutputStream oos;
+    public Connection connection;
 
     public MessageManager(Server ss) throws Exception
     {

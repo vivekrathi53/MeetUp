@@ -1,10 +1,7 @@
 package ClientFiles.Controllers;
 
-import ClientFiles.ClientReceiver;
-import ClientFiles.VideoReceiver;
-import ClientFiles.VideoSender;
+import ClientFiles.ChatHandlingThreads.ClientReceiver;
 import CommonFiles.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -70,7 +67,7 @@ public class ChatWindowController
     public void seenMessagesof(String friend)
     {
         Timestamp seenTime=new Timestamp(System.currentTimeMillis());
-        String q="UPDATE Local"+username+"Chats SET SeenTime = '"+seenTime.toString()+"' WHERE SeenTime = '2019-01-01 00:00:00' AND Sender ='"+friend+"'";
+        String q="UPDATE Local"+username+"Chats SET SeenTime = '"+seenTime.toString()+"' WHERE SeenTime = '"+seenTime.toString()+"' AND Sender ='"+friend+"'";
         try {
             PreparedStatement ps = connection.prepareStatement(q);
             ps.executeUpdate();

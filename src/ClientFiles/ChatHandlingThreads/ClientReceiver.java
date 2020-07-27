@@ -1,4 +1,4 @@
-package ClientFiles;
+package ClientFiles.ChatHandlingThreads;
 
 import ClientFiles.Controllers.ChatWindowController;
 import CommonFiles.*;
@@ -19,10 +19,10 @@ import java.sql.Timestamp;
 public class ClientReceiver implements Runnable
 {
     public ChatWindowController controller;
-    Connection connection;
-    ObjectInputStream ois;
-    ObjectOutputStream oos;
-    String username;
+    public Connection connection;
+    public ObjectInputStream ois;
+    public ObjectOutputStream oos;
+    public String username;
     @Override
     public void run()
     {
@@ -40,12 +40,20 @@ public class ClientReceiver implements Runnable
             if(obj instanceof Message)
             {
                 Message temp = (Message)obj;
-               temp.setReceivedTime(new Timestamp(System.currentTimeMillis()));//Receiver time is current time
+                Timestamp receivedTime = new Timestamp(System.currentTimeMillis());
+               temp.setReceivedTime(receivedTime);//Receiver time is current time
                 String q="INSERT INTO Local"+username+"Chats VALUES('"+(temp.getFrom())+"','"+(temp.getTo())+"','"+(temp.getContent())+"',"+(temp.getSentTime()==null?"null":("'"+temp.getSentTime()+"'"))+","+(temp.getReceivedTime()==null?"'2019-01-01 00:00:00'":("'"+temp.getReceivedTime()+"'"))+","+(temp.getSeenTime()==null?"'2019-01-01 00:00:00'":("'"+temp.getSeenTime()+"'"))+")";
                 try {
                     PreparedStatement ps = connection.prepareStatement(q);
                     ps.executeUpdate();
                 } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                SystemMessage sm = new SystemMessage(temp.getFrom(),1,receivedTime);
+                try {
+                    oos.writeObject(sm);
+                    oos.flush();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
                 if(temp.getFrom().equals(controller.currentUser.getText()))
@@ -166,7 +174,7 @@ public class ClientReceiver implements Runnable
                         });
                     }
                 }
-                else if(temp.getValid()==1||temp.getValid()==2)
+                if(temp.getValid()==1||temp.getValid()==2)
                 {
                     Platform.runLater(new Runnable()//To perform UI work from different Thread
                     {

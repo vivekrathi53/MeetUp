@@ -1,5 +1,6 @@
 package ClientFiles;
 
+import ClientFiles.ChatHandlingThreads.ClientReceiver;
 import ClientFiles.Controllers.ChatWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

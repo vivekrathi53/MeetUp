@@ -12,8 +12,8 @@ public class LoginWindow extends Application {
     FXMLLoader loader;
     LoginWindowController controller;
     AnchorPane MainDisplay;
-    @Override
 
+    @Override
     public void start(Stage primaryStage) throws Exception
     {
         loader = new FXMLLoader(getClass().getResource("../ClientFiles/FXML_Files/LoginWindowDesign.fxml"));

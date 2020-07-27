@@ -1,4 +1,4 @@
-package ClientFiles;
+package ClientFiles.CallHandlingThreads;
 
 import CommonFiles.FramePacket;
 import com.github.sarxos.webcam.Webcam;

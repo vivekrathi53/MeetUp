@@ -1,20 +1,18 @@
 package ServerFiles;
 
 import CommonFiles.*;
+import ServerFiles.DatabaseManager.MessageManager;
 import javafx.util.Pair;
 import sun.net.ConnectionResetException;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.sql.*;
 
 public class ClientHandler implements Runnable,Serializable
 {
-    Socket sc;
+    public Socket sc;
     Server server;
     ObjectOutputStream oos;
     ObjectInputStream ois;
@@ -131,6 +129,12 @@ public class ClientHandler implements Runnable,Serializable
                         try {
                             obj = ois.readObject();
                         } catch (ConnectionResetException e) {
+                            e.printStackTrace();
+                            break;
+                        }
+                        catch (EOFException e)
+                        {
+                            logout(new Timestamp(System.currentTimeMillis()));
                             e.printStackTrace();
                             break;
                         }

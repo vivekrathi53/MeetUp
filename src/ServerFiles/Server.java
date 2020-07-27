@@ -1,5 +1,8 @@
 package ServerFiles;
 
+import ServerFiles.DatabaseManager.MessageManager;
+import ServerFiles.ServerCallHandlingThreads.CallAudioHandler;
+import ServerFiles.ServerCallHandlingThreads.CallFramesHandler;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -66,7 +69,7 @@ public class Server
         }
 
     }
-    boolean isOnline(String username)
+    public boolean isOnline(String username)
     {
         for(int i=0;i<activelist.size();i++)
         {
@@ -77,7 +80,7 @@ public class Server
         }
         return false;
     }
-    Pair<ClientHandler,Thread> getHandler(String username)
+    public Pair<ClientHandler,Thread> getHandler(String username)
     {
         for(int i=0;i<activelist.size();i++)
         {

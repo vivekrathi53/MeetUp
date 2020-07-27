@@ -1,6 +1,7 @@
-package ServerFiles;
+package ServerFiles.ServerCallHandlingThreads;
 
 import CommonFiles.AudioPacket;
+import ServerFiles.Server;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.net.SocketException;
 
 public class CallAudioHandler implements Runnable
 {
-    Server server;
+    public Server server;
     @Override
     public void run() {
         DatagramSocket ds=null;
